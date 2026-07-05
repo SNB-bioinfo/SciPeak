@@ -236,23 +236,20 @@
   .card:hover .read{gap:12px}
 
   /* PODCAST */
-  .pod{display:grid;gap:14px;max-width:680px;margin-inline:auto;width:100%}
-  .ep{display:flex;align-items:center;gap:18px;padding:18px 20px;border:1px solid rgba(255,255,255,.08);border-radius:16px;
-    background:rgba(255,255,255,.02);transition:border-color .3s,background .3s}
-  .ep:hover{border-color:rgba(199,125,255,.4);background:rgba(199,125,255,.05)}
+  .pod{display:grid;gap:14px;max-width:560px}
+  .ep{display:flex;align-items:center;gap:18px;padding:16px 20px;border:1px solid rgba(255,255,255,.08);border-radius:16px;
+    background:rgba(255,255,255,.02);text-decoration:none;color:inherit;cursor:pointer;
+    transition:border-color .3s,background .3s,transform .3s}
+  .ep:hover{border-color:rgba(199,125,255,.45);background:rgba(199,125,255,.06);transform:translateY(-2px)}
   .ep .play{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
-    background:rgba(0,229,255,.20);border:1px solid rgba(199,125,255,.35);color:#e3c8ff;font-size:.9rem}
-  .ep .info{flex:1}
+    background:rgba(0,229,255,.20);border:1px solid rgba(199,125,255,.35);color:#e3c8ff;font-size:.9rem;
+    transition:background .3s,box-shadow .3s}
+  .ep:hover .play{background:rgba(0,245,212,.28);box-shadow:0 0 16px rgba(0,245,212,.35)}
+  .ep .info{flex:1;min-width:0}
   .ep .num{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--g);margin-bottom:3px}
-  .ep h4{font-family:var(--display);font-weight:600;font-size:1.02rem;line-height:1.25;margin-bottom:3px}
-  .ep p{font-size:.84rem;color:rgba(234,240,255,.5);line-height:1.45}
-  .ep .dur{font-size:.78rem;color:rgba(234,240,255,.4);flex:none}
-  /* Spotify embed kartı */
-  .ep-embed{border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:10px 10px 8px;
-    background:rgba(255,255,255,.02);transition:border-color .3s,background .3s}
-  .ep-embed:hover{border-color:rgba(199,125,255,.4);background:rgba(199,125,255,.05)}
-  .ep-embed .num{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--g);margin:2px 4px 8px}
-  .ep-embed iframe{border-radius:12px;display:block;width:100%;border:0}
+  .ep h4{font-family:var(--display);font-weight:600;font-size:1.02rem;line-height:1.25;margin-bottom:4px}
+  .ep .listen{font-size:.82rem;color:var(--a);font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+  .ep:hover .listen{gap:10px}
   .pod-sig{font-style:italic;font-size:.92rem;letter-spacing:.01em;color:var(--a);opacity:.85;margin-top:10px;
     text-shadow:0 0 14px rgba(0,245,212,.3)}
 
@@ -618,8 +615,8 @@ const POSTS=[
    Örn: https://open.spotify.com/episode/6kFuYc5GoDB7oK7aqagGyG  →  sid:'6kFuYc5GoDB7oK7aqagGyG'
    Bölümler en yeni en üstte olacak şekilde sıralı durur. */
 const EPS=[
-  {n:'01', sid:'6kFuYc5GoDB7oK7aqagGyG'},
-  // {n:'02', sid:'TANITIM_BOLUMUNUN_ID'},   // Tanıtım bölümünün ID'sini yapıştırınca aktif olur
+  {n:'01', sid:'6kFuYc5GoDB7oK7aqagGyG', t:{tr:'DNA Bulutu & Dijital İkiz', en:'DNA Cloud & Digital Twin'}},
+  // {n:'02', sid:'TANITIM_ID', t:{tr:'Tanıtım', en:'Trailer'}},
 ];
 
 let lang='tr';
@@ -672,21 +669,24 @@ function renderCatCounts(){
 function renderEps(){
   const l=document.getElementById('podList');l.innerHTML='';
   EPS.forEach(e=>{
-    const el=document.createElement('div');el.className='ep-embed';
     if(e.sid){
-      // Gerçek Spotify oynatıcısı — ses Spotify'da barındırılır, bant genişliği tüketmez.
-      el.innerHTML=`<div class="num">EP. ${e.n}</div>
-        <iframe src="https://open.spotify.com/embed/episode/${e.sid}?theme=0"
-          width="100%" height="152"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
-          loading="lazy" title="The Wet Lab Coder — EP. ${e.n}"></iframe>`;
+      // Sitenin kendi tasarımında kart; tıklayınca bölüm Spotify'da açılır.
+      const a=document.createElement('a');a.className='ep';
+      a.href='https://open.spotify.com/episode/'+e.sid;
+      a.target='_blank';a.rel='noopener noreferrer';
+      a.innerHTML=`<div class="play">▶</div>
+        <div class="info">
+          <div class="num">EP. ${e.n}</div>
+          <h4 data-tr="${e.t.tr}" data-en="${e.t.en}">${e.t[lang]}</h4>
+          <span class="listen" data-tr="Spotify'da dinle →" data-en="Listen on Spotify →">${lang==='tr'?"Spotify'da dinle →":'Listen on Spotify →'}</span>
+        </div>`;
+      l.appendChild(a);
     }else{
-      // ID henüz eklenmemiş bölüm için yer tutucu
-      el.innerHTML=`<div class="num">EP. ${e.n}</div>
-        <p style="color:rgba(234,240,255,.5);font-size:.85rem;padding:4px">
-        <span data-tr="Bölüm yakında." data-en="Episode coming soon.">Bölüm yakında.</span></p>`;
+      const el=document.createElement('div');el.className='ep';
+      el.innerHTML=`<div class="info"><div class="num">EP. ${e.n}</div>
+        <h4 data-tr="Bölüm yakında." data-en="Episode coming soon.">Bölüm yakında.</h4></div>`;
+      l.appendChild(el);
     }
-    l.appendChild(el);
   });
 }
 function applyLang(){
