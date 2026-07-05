@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vücudumuzun Dijital Kopyası: Digital Twin Biyolojide Ne Anlama Geliyor? — SciPeak</title>
+<meta name="description" content="Digital twin teknolojisi, organlarımızın ve metabolizmamızın sanal kopyalarını yaratarak kişiselleştirilmiş tıp ve hastalık tahminlerinde nasıl devrim yaratıyor?">
+<meta name="author" content="SciPeak">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vücudumuzun Dijital Kopyası: Digital Twin Biyolojide Ne Anlama Geliyor?">
+<meta property="og:description" content="Digital twin teknolojisi, organlarımızın ve metabolizmamızın sanal kopyalarını yaratarak kişiselleştirilmiş tıp ve hastalık tahminlerinde nasıl devrim yaratıyor?">
+<meta property="og:site_name" content="SciPeak">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%AC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#070B12;--a:#00F5D4;--t:#00E5FF;--g:#c77dff;--c:#FFB000;--ink:#eaf0ff;
+    --display:'Satoshi','Space Grotesk',sans-serif;--body:'General Sans','Inter',system-ui,sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:
+      radial-gradient(circle at 20% 15%, rgba(0,229,255,.20), transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(0,245,212,.18), transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(255,176,0,.10), transparent 60%),
+      linear-gradient(180deg,#070B12 0%,#05080f 100%);
+    color:var(--ink);font-family:var(--body);overflow-x:hidden;min-height:100vh}
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.07;
+    background-image:
+      radial-gradient(circle at 25% 25%, rgba(0,245,212,.5) 1px, transparent 1px),
+      radial-gradient(circle at 75% 75%, rgba(0,229,255,.45) 1px, transparent 1px);
+    background-size:12px 12px}
+  .nav{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;
+    padding:18px clamp(20px,5vw,64px);background:rgba(4,5,13,.72);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07)}
+  .nav .brand{font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:-.01em;text-decoration:none;color:var(--ink)}
+  .nav .brand b{background:linear-gradient(90deg,var(--a),var(--t));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav .lang{font-size:.78rem;color:rgba(234,240,255,.62);border:1px solid rgba(255,255,255,.16);
+    padding:6px 14px;border-radius:999px;cursor:pointer;user-select:none;transition:border-color .2s,color .2s;background:none}
+  .nav .lang:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+  .nav .lang b{color:var(--t);font-weight:600}
+  .wrap{max-width:820px;margin:0 auto;padding:clamp(40px,7vw,80px) clamp(20px,5vw,40px) 100px;position:relative}
+  .glow{position:fixed;top:-10vh;left:50%;transform:translateX(-50%);width:80vw;height:50vh;z-index:0;pointer-events:none;
+    background:radial-gradient(ellipse at center,rgba(0,245,212,.18),rgba(29,255,176,.10),transparent 72%);filter:blur(40px)}
+  .wrap>*{position:relative;z-index:1}
+  .back{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;color:rgba(234,240,255,.6);text-decoration:none;margin-bottom:36px;transition:color .2s,gap .2s}
+  .back:hover{color:var(--t);gap:12px}
+  .tagrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+  .tag{display:inline-block;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+    background:rgba(0,245,212,.18);border:1px solid rgba(52,198,255,.4);color:#9fd9ff;padding:5px 12px;border-radius:999px}
+  h1{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,5vw,3rem);line-height:1.12;margin-bottom:18px;
+    background:linear-gradient(180deg,#fff 40%,#9ec7ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .meta{display:flex;gap:14px;flex-wrap:wrap;font-size:.82rem;color:rgba(234,240,255,.45);margin-bottom:40px;
+    padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.09)}
+  .meta .author{color:rgba(234,240,255,.7)}
+  .meta .author b{color:var(--ink);font-weight:500}
+  .hero-img{width:100%;aspect-ratio:16/8;border-radius:18px;margin-bottom:40px;position:relative;overflow:hidden;
+    background:linear-gradient(135deg,#0d3b4f,#0a192f)}
+  .hero-img svg,.hero-img img{width:100%;height:100%;display:block;object-fit:cover}
+  .content{font-size:1.06rem;line-height:1.85;color:rgba(234,240,255,.82)}
+  .content p{margin-bottom:1.5rem}
+  .content p:last-child{margin-bottom:0}
+  .content em{color:#9dffd9;font-style:normal;font-weight:500}
+  .refs-box{margin-top:40px;padding:24px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07)}
+  .refs-box h3{font-family:var(--display);font-weight:600;font-size:1.1rem;margin-bottom:16px;color:#fff}
+  .refs-box ul{list-style-type:square;padding-left:20px;font-size:0.9rem;color:rgba(234,240,255,.6);line-height:1.6}
+  .refs-box li{margin-bottom:12px;word-break:break-word}
+  .refs-box a{color:var(--t);text-decoration:none}
+  .refs-box a:hover{text-decoration:underline}
+  .related{margin-top:56px;padding-top:36px;border-top:1px solid rgba(255,255,255,.09)}
+  .related h3{font-family:var(--display);font-weight:600;font-size:1.2rem;margin-bottom:18px}
+  .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+  .rel-card{display:block;padding:18px 20px;border-radius:14px;border:1px solid rgba(255,255,255,.09);
+    background:rgba(255,255,255,.02);text-decoration:none;color:inherit;transition:border-color .25s,transform .25s}
+  .rel-card:hover{border-color:rgba(52,198,255,.4);transform:translateY(-3px)}
+  .rel-tag{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--t);margin-bottom:8px;display:block}
+  .rel-card h4{font-family:var(--display);font-weight:600;font-size:.96rem;line-height:1.3;margin-bottom:6px}
+  .rel-card .rel-meta{font-size:.78rem;color:rgba(234,240,255,.45)}
+  .foot{margin-top:60px;padding-top:32px;border-top:1px solid rgba(255,255,255,.09);
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .foot .brand{font-family:var(--display);font-weight:700;font-size:1.1rem}
+  .foot .brand b{background:linear-gradient(90deg,var(--a),var(--t));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .foot a{font-size:.86rem;color:var(--t);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<nav class="nav">
+  <a class="brand" href="../index.html">Sci<b>Peak</b></a>
+  <button class="lang" id="langToggle"><b>TR</b> / EN</button>
+</nav>
+<article class="wrap">
+  <a class="back" href="../index.html" data-tr="← Tüm yazılar" data-en="← All articles">← Tüm yazılar</a>
+  <div class="tagrow">
+    <span class="tag" data-tr="Tıp & Klinik" data-en="Medicine & Clinical">Tıp & Klinik</span>
+    <span class="tag" data-tr="Yapay Zeka" data-en="AI">Yapay Zeka</span>
+  </div>
+  <h1 data-tr="Vücudumuzun Dijital Kopyası: Digital Twin Biyolojide Ne Anlama Geliyor?" data-en="Digital Copy of Our Body: What Does Digital Twin Mean in Biology?">Vücudumuzun Dijital Kopyası: Digital Twin Biyolojide Ne Anlama Geliyor?</h1>
+  <div class="meta">
+    <span class="author" data-tr="<b>Meryem Gedik</b>" data-en="<b>Meryem Gedik</b>">Meryem Gedik</span>
+    <span data-tr="28 Haziran 2026" data-en="June 28, 2026">28 Haziran 2026</span>
+    <span data-tr="5 dk okuma" data-en="5 min read">5 dk okuma</span>
+  </div>
+  <div class="hero-img">
+    <img src="digital-twin.png" alt="İnsan vücudunun dijital ikizi: organlar, sinir ağı ve DNA sarmalının ışıklı holografik gösterimi" loading="lazy"/>
+  </div>
+  <div class="content" id="content"></div>
+  <div class="related">
+    <h3 data-tr="Bunları da okuyabilirsiniz" data-en="You might also like">Bunları da okuyabilirsiniz</h3>
+    <div class="related-grid" id="relatedGrid"></div>
+  </div>
+  <div class="foot">
+    <div class="brand">Sci<b>Peak</b></div>
+    <a href="../index.html" data-tr="← Ana sayfaya dön" data-en="← Back to home">← Ana sayfaya dön</a>
+  </div>
+</article>
+<script>
+const RELATED=[
+  {slug:'dna-bulutu-digital-twin',
+   tag:{tr:'Yapay Zeka',en:'AI'},
+   h:{tr:'İnsan DNA\'sını Bulut Olarak Kullanmak Mümkün mü?',en:'Can Human DNA Be Used as a Cloud System?'},
+   m:{tr:'7 dk okuma',en:'7 min read'}},
+  {slug:'embriyolojinin-evrimi',
+   tag:{tr:'Embriyoloji',en:'Embryology'},
+   h:{tr:'Embriyolojinin Evrimi: Mitlerden Modern Teknolojiye',en:'The Evolution of Embryology: From Myths to Modern Technology'},
+   m:{tr:'8 dk okuma',en:'8 min read'}}
+];
+
+function renderRelated(){
+  const g=document.getElementById('relatedGrid');if(!g)return;
+  g.innerHTML='';
+  RELATED.forEach(r=>{
+    const a=document.createElement('a');a.className='rel-card';a.href=r.slug+'.html';
+    a.innerHTML=`<span class="rel-tag" data-tr="${r.tag.tr}" data-en="${r.tag.en}">${r.tag[lang]}</span>
+      <h4 data-tr="${r.h.tr}" data-en="${r.h.en}">${r.h[lang]}</h4>
+      <div class="rel-meta" data-tr="${r.m.tr}" data-en="${r.m.en}">${r.m[lang]}</div>`;
+    g.appendChild(a);
+  });
+}
+
+const BODY={
+tr:[
+"Bir düşünün: Doktora gitmeden önce vücudunuzun dijital bir kopyası oluşturuluyor. Bu kopya sizin kan değerlerinizi, genetik özelliklerinizi, kalp atışlarınızı, metabolizmanızı, hatta günlük yaşam alışkanlıklarınızı takip ediyor. Sonra da şu sorulara cevap arıyor: “Bu hastalık ilerler mi?”, “Bu ilaç bu kişide işe yarar mı?”, “Tedaviye vücut nasıl tepki verir?”",
+"İşte bu fikir, günümüzde <em>digital twin</em>, yani dijital ikiz teknolojisiyle giderek daha gerçekçi hale geliyor.",
+"Digital twin, en basit haliyle gerçek bir sistemin bilgisayar ortamında oluşturulan sanal kopyasıdır. Bu kavram ilk olarak mühendislik ve endüstri alanlarında öne çıksa da artık biyoloji ve sağlık alanında da dikkat çekmeye başlamıştır. Çünkü insan vücudu da aslında sürekli çalışan, değişen ve farklı faktörlerden etkilenen karmaşık bir sistemdir.",
+"Biyolojik açıdan digital twin, bir hücrenin, organın, metabolik sürecin, hastalığın ya da hastanın dijital ortamda modellenmesi anlamına gelir. Yani amaç, vücutta gerçekleşen olayları bilgisayar üzerinde taklit etmek ve bu model üzerinden tahminler yapabilmektir. Örneğin bir hastanın kan şekeri, kalp ritmi, genetik bilgileri, görüntüleme sonuçları, beslenme düzeni ve fiziksel aktivitesi birlikte değerlendirilerek kişiye özel bir dijital model oluşturulabilir.",
+"Bu teknoloji özellikle kişiselleştirilmiş tıp açısından oldukça önemlidir. Çünkü her insanın biyolojik yapısı aynı değildir. Aynı hastalık iki kişide farklı ilerleyebilir. Aynı ilaç bir kişide etkili olurken başka bir kişide yeterli sonuç vermeyebilir. Digital twin yaklaşımı da tam olarak bu noktada devreye girer. Hastaya özel oluşturulan dijital model sayesinde tedavinin nasıl sonuç verebileceği önceden tahmin edilmeye çalışılır.",
+"Bu alanda yapılan çalışmalardan biri kalp üzerine odaklanmaktadır. Dassault Systèmes, “Living Heart Project” adlı çalışmasıyla insan kalbinin dijital bir modelini geliştirmiştir. Bu model sayesinde kalbin yapısı ve hareketleri sanal ortamda incelenebilir. Böylece kalp hastalıkları, medikal cihazlar ve tedavi seçenekleri bilgisayar ortamında test edilebilir.",
+"Bir diğer örnek ise metabolizma alanındadır. Twin Health, kişinin kan şekeri, uyku, aktivite ve beslenme verilerini kullanarak metabolik sağlığı takip etmeye yönelik bir dijital ikiz yaklaşımı geliştirmektedir. Bu sistem, özellikle diyabet ve metabolik hastalıkların yönetiminde kişiye özel öneriler sunmayı hedeflemektedir.",
+"Siemens Healthineers ise “digital patient twin” kavramı üzerinde çalışmaktadır. Bu yaklaşımda hastanın sağlık verileri bir araya getirilerek tanı ve tedavi süreçlerinde daha kişisel kararlar alınması amaçlanır. Unlearn AI ise klinik araştırmalarda dijital ikizleri kullanarak hastaların tedaviye verebileceği yanıtları tahmin etmeye çalışmaktadır. Bu da gelecekte klinik çalışmaların daha hızlı ve verimli ilerlemesine katkı sağlayabilir.",
+"Digital twin teknolojisinin en ilgi çekici tarafı, biyolojiyi sabit bir yapı gibi değil, sürekli değişen canlı bir sistem gibi ele almasıdır. Çünkü insan vücudu; beslenme, çevre, stres, ilaç kullanımı, genetik yapı ve hastalık durumuna göre sürekli değişir. Dijital ikizler de bu değişimi takip ederek daha güncel ve kişiye özel analizler yapılmasına yardımcı olabilir.",
+"Elbette bu teknolojinin bazı sınırlamaları da vardır. Güvenilir bir dijital ikiz oluşturmak için çok fazla ve kaliteli veriye ihtiyaç duyulur. Ayrıca hasta verilerinin gizliliği, etik kurallar, yapay zekâ modelinin doğruluğu ve klinik güvenilirlik gibi konular dikkatle değerlendirilmelidir. Bu nedenle digital twin teknolojisi umut verici olsa da sağlık alanında kontrollü ve bilimsel temellere dayalı şekilde kullanılmalıdır.",
+"Sonuç olarak digital twin, biyoloji ve yapay zekânın birleştiği en dikkat çekici alanlardan biridir. Gelecekte hastalıkların daha erken fark edilmesi, tedavilerin kişiye özel planlanması ve ilaç geliştirme süreçlerinin hızlanması için önemli bir rol oynayabilir. Belki de yakın gelecekte doktorlar yalnızca bizi değil, bizim dijital kopyamızı da inceleyerek tedavi kararları verecek."
+],
+en:[
+"Imagine this: Before going to the doctor, a digital copy of your body is created. This copy tracks your blood values, genetic traits, heart rate, metabolism, and even your daily lifestyle habits. Then, it seeks answers to questions like: “Will this disease progress?”, “Will this drug work for this person?”, “How will the body react to the treatment?”",
+"This idea is becoming increasingly realistic today with <em>digital twin</em> technology.",
+"A digital twin, in its simplest form, is a virtual copy of a real system created in a computer environment. Although this concept first gained prominence in engineering and industrial fields, it has now begun to attract attention in biology and healthcare. Because the human body is actually a complex system that constantly works, changes, and is affected by various factors.",
+"Biologically, a digital twin means modeling a cell, organ, metabolic process, disease, or patient in a digital environment. In other words, the goal is to simulate events occurring in the body on a computer and make predictions based on this model. For instance, a personalized digital model can be created by evaluating a patient's blood sugar, heart rhythm, genetic information, imaging results, diet, and physical activity together.",
+"This technology is especially crucial for personalized medicine. Because every human's biological structure is not the same. The same disease can progress differently in two people. The same drug may be effective for one person while failing to provide adequate results for another. The digital twin approach comes into play exactly at this point. Thanks to the personalized digital model, it is attempted to predict in advance how the treatment will result.",
+"One of the studies focusing on this area is on the heart. Dassault Systèmes has developed a digital model of the human heart with its study called the 'Living Heart Project'. Through this model, the structure and movements of the heart can be examined in a virtual environment. Thus, heart diseases, medical devices, and treatment options can be tested on a computer.",
+"Another example is in the field of metabolism. Twin Health is developing a digital twin approach aimed at tracking metabolic health using a person's blood sugar, sleep, activity, and nutrition data. This system aims to offer personalized recommendations, especially in the management of diabetes and metabolic diseases.",
+"Siemens Healthineers, on the other hand, is working on the concept of a 'digital patient twin'. This approach aims to bring the patient's health data together to make more personalized decisions in diagnosis and treatment processes. Unlearn AI is trying to predict patients' responses to treatments using digital twins in clinical trials. This could contribute to faster and more efficient clinical studies in the future.",
+"The most intriguing aspect of digital twin technology is that it treats biology not as a static structure, but as a continuously changing living system. Because the human body constantly changes according to diet, environment, stress, medication use, genetic makeup, and disease state. Digital twins can track this change, helping to perform more updated and personalized analyses.",
+"Of course, this technology also has some limitations. Creating a reliable digital twin requires a vast amount of high-quality data. Furthermore, issues such as patient data privacy, ethical rules, the accuracy of the artificial intelligence model, and clinical reliability must be carefully evaluated. Therefore, although digital twin technology is promising, it should be used in healthcare in a controlled manner based on scientific foundations.",
+"In conclusion, digital twin is one of the most fascinating areas where biology and artificial intelligence converge. In the future, it could play a significant role in detecting diseases earlier, planning personalized treatments, and accelerating drug development processes. Perhaps in the near future, doctors will make treatment decisions by examining not only us but also our digital copies."
+]
+};
+
+const REFS = {
+  tr: `
+    <div class="refs-box">
+      <h3>Okuma Önerileri</h3>
+      <ul>
+        <li>Corral-Acero, J., et al. (2020). The 'Digital Twin' to enable the vision of precision cardiology. <i>European Heart Journal</i>, 41, 4556 - 4564. <a href="https://doi.org/10.1093/eurheartj/ehaa159" target="_blank" rel="noopener">https://doi.org/10.1093/eurheartj/ehaa159</a></li>
+        <li>Venkatesh, K. P., Raza, M. M., & Kvedar, J. (2022). Health digital twins as tools for precision medicine: Considerations for computation, implementation, and regulation. <i>NPJ Digital Medicine</i>, 5. <a href="https://doi.org/10.1038/s41746-022-00694-7" target="_blank" rel="noopener">https://doi.org/10.1038/s41746-022-00694-7</a></li>
+        <li>Sel, K., et al. (2024). Building Digital Twins for Cardiovascular Health: From Principles to Clinical Impact. <i>Journal of the American Heart Association</i>, 13. <a href="https://doi.org/10.1161/jaha.123.031981" target="_blank" rel="noopener">https://doi.org/10.1161/jaha.123.031981</a></li>
+        <li>Drummond, D., & Gonsard, A. (2024). Definitions and Characteristics of Patient Digital Twins Being Developed for Clinical Use: Scoping Review. <i>Journal of Medical Internet Research</i>, 26. <a href="https://doi.org/10.2196/58504" target="_blank" rel="noopener">https://doi.org/10.2196/58504</a></li>
+        <li>De Domenico, M., et al. (2025). Challenges and opportunities for digital twins in precision medicine from a complex systems perspective. <i>NPJ Digital Medicine</i>, 8. <a href="https://doi.org/10.1038/s41746-024-01402-3" target="_blank" rel="noopener">https://doi.org/10.1038/s41746-024-01402-3</a></li>
+        <li>Silva, A. B. A., & Vale, N. (2025). Digital Twins in Personalized Medicine: Bridging Innovation and Clinical Reality. <i>Journal of Personalized Medicine</i>, 15. <a href="https://doi.org/10.3390/jpm15110503" target="_blank" rel="noopener">https://doi.org/10.3390/jpm15110503</a></li>
+        <li>Viola, F., et al. (2023). GPU accelerated digital twins of the human heart open new routes for cardiovascular research. <i>Scientific Reports</i>, 13. <a href="https://doi.org/10.1038/s41598-023-34098-8" target="_blank" rel="noopener">https://doi.org/10.1038/s41598-023-34098-8</a></li>
+        <li>Vidovszky, A. A., et al. (2024). Increasing acceptance of AI-generated digital twins through clinical trial applications. <i>Clinical and Translational Science</i>, 17. <a href="https://doi.org/10.1111/cts.13897" target="_blank" rel="noopener">https://doi.org/10.1111/cts.13897</a></li>
+      </ul>
+    </div>
+  `,
+  en: `
+    <div class="refs-box">
+      <h3>Further Reading</h3>
+      <ul>
+        <li>Corral-Acero, J., et al. (2020). The 'Digital Twin' to enable the vision of precision cardiology. <i>European Heart Journal</i>, 41, 4556 - 4564. <a href="https://doi.org/10.1093/eurheartj/ehaa159" target="_blank" rel="noopener">https://doi.org/10.1093/eurheartj/ehaa159</a></li>
+        <li>Venkatesh, K. P., Raza, M. M., & Kvedar, J. (2022). Health digital twins as tools for precision medicine: Considerations for computation, implementation, and regulation. <i>NPJ Digital Medicine</i>, 5. <a href="https://doi.org/10.1038/s41746-022-00694-7" target="_blank" rel="noopener">https://doi.org/10.1038/s41746-022-00694-7</a></li>
+        <li>Sel, K., et al. (2024). Building Digital Twins for Cardiovascular Health: From Principles to Clinical Impact. <i>Journal of the American Heart Association</i>, 13. <a href="https://doi.org/10.1161/jaha.123.031981" target="_blank" rel="noopener">https://doi.org/10.1161/jaha.123.031981</a></li>
+        <li>Drummond, D., & Gonsard, A. (2024). Definitions and Characteristics of Patient Digital Twins Being Developed for Clinical Use: Scoping Review. <i>Journal of Medical Internet Research</i>, 26. <a href="https://doi.org/10.2196/58504" target="_blank" rel="noopener">https://doi.org/10.2196/58504</a></li>
+        <li>De Domenico, M., et al. (2025). Challenges and opportunities for digital twins in precision medicine from a complex systems perspective. <i>NPJ Digital Medicine</i>, 8. <a href="https://doi.org/10.1038/s41746-024-01402-3" target="_blank" rel="noopener">https://doi.org/10.1038/s41746-024-01402-3</a></li>
+        <li>Silva, A. B. A., & Vale, N. (2025). Digital Twins in Personalized Medicine: Bridging Innovation and Clinical Reality. <i>Journal of Personalized Medicine</i>, 15. <a href="https://doi.org/10.3390/jpm15110503" target="_blank" rel="noopener">https://doi.org/10.3390/jpm15110503</a></li>
+        <li>Viola, F., et al. (2023). GPU accelerated digital twins of the human heart open new routes for cardiovascular research. <i>Scientific Reports</i>, 13. <a href="https://doi.org/10.1038/s41598-023-34098-8" target="_blank" rel="noopener">https://doi.org/10.1038/s41598-023-34098-8</a></li>
+        <li>Vidovszky, A. A., et al. (2024). Increasing acceptance of AI-generated digital twins through clinical trial applications. <i>Clinical and Translational Science</i>, 17. <a href="https://doi.org/10.1111/cts.13897" target="_blank" rel="noopener">https://doi.org/10.1111/cts.13897</a></li>
+      </ul>
+    </div>
+  `
+};
+
+let lang='tr';
+try{const sv=localStorage.getItem('scipeak_lang');if(sv)lang=sv}catch{}
+
+function render(){
+  document.documentElement.lang=lang;
+  const paras=BODY[lang].map(p=>'<p>'+p+'</p>');
+  
+  // Append references to the end of the content
+  document.getElementById('content').innerHTML=paras.join('') + REFS[lang];
+  
+  document.querySelectorAll('[data-tr]').forEach(el=>{
+    const v=el.getAttribute('data-'+lang);if(v==null)return;
+    if(v.includes('<b>'))el.innerHTML=v;else el.textContent=v;
+  });
+  document.getElementById('langToggle').innerHTML=lang==='tr'?'<b>TR</b> / EN':'TR / <b>EN</b>';
+  renderRelated();
+}
+
+document.getElementById('langToggle').addEventListener('click',()=>{
+  lang=lang==='tr'?'en':'tr';
+  try{localStorage.setItem('scipeak_lang',lang)}catch{}
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
