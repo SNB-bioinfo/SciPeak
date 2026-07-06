@@ -241,10 +241,12 @@
     background:rgba(255,255,255,.02);text-decoration:none;color:inherit;cursor:pointer;
     transition:border-color .3s,background .3s,transform .3s}
   .ep:hover{border-color:rgba(199,125,255,.45);background:rgba(199,125,255,.06);transform:translateY(-2px)}
-  .ep .play{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
-    background:rgba(0,229,255,.20);border:1px solid rgba(199,125,255,.35);color:#e3c8ff;font-size:.9rem;
-    transition:background .3s,box-shadow .3s}
-  .ep:hover .play{background:rgba(0,245,212,.28);box-shadow:0 0 16px rgba(0,245,212,.35)}
+  .ep .ep-cover{flex:none;width:60px;height:60px;border-radius:12px;overflow:hidden;position:relative;
+    border:1px solid rgba(255,255,255,.1)}
+  .ep .ep-cover img{width:100%;height:100%;object-fit:cover;display:block}
+  .ep .ep-cover .pl{position:absolute;inset:0;display:grid;place-items:center;font-size:.9rem;color:#fff;
+    background:rgba(4,5,13,.42);opacity:0;transition:opacity .3s}
+  .ep:hover .ep-cover .pl{opacity:1}
   .ep .info{flex:1;min-width:0}
   .ep .num{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--g);margin-bottom:3px}
   .ep h4{font-family:var(--display);font-weight:600;font-size:1.02rem;line-height:1.25;margin-bottom:4px}
@@ -302,6 +304,8 @@
   footer .brand{font-family:var(--display);font-weight:700;font-size:1.2rem}
   footer .brand b{background:linear-gradient(90deg,var(--a),var(--t));-webkit-background-clip:text;background-clip:text;color:transparent}
   footer .copy{font-size:.78rem;color:rgba(234,240,255,.4)}
+  footer .foot-link{font-size:.85rem;color:var(--t);text-decoration:none;transition:color .2s}
+  footer .foot-link:hover{color:#fff}
 
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}
   .reveal.show{opacity:1;transform:none}
@@ -390,6 +394,7 @@
     <a href="#yazilar" data-tr="Yazılar" data-en="Articles">Yazılar</a>
     <a href="#podcast" data-tr="Podcast" data-en="Podcast">Podcast</a>
     <a href="#ekip" data-tr="Ekip" data-en="Team">Ekip</a>
+    <a href="hakkimizda.html" data-tr="Hakkımızda" data-en="About">Hakkımızda</a>
   </div>
   <button class="lang" id="langToggle"><b>TR</b> / EN</button>
 </nav>
@@ -542,6 +547,7 @@
 
 <footer>
   <div class="brand">Sci<b>Peak</b></div>
+  <a href="hakkimizda.html" class="foot-link" data-tr="Hakkımızda" data-en="About">Hakkımızda</a>
   <div class="copy" data-tr="© 2026 SciPeak. Bilimin zirvesinde." data-en="© 2026 SciPeak. At the peak of science.">© 2026 SciPeak. Bilimin zirvesinde.</div>
 </footer>
 
@@ -674,7 +680,7 @@ function renderEps(){
       const a=document.createElement('a');a.className='ep';
       a.href='https://open.spotify.com/episode/'+e.sid;
       a.target='_blank';a.rel='noopener noreferrer';
-      a.innerHTML=`<div class="play">▶</div>
+      a.innerHTML=`<div class="ep-cover"><img src="podcast-kapak.jpg" alt="The Wet Lab Coder" loading="lazy"><span class="pl">▶</span></div>
         <div class="info">
           <div class="num">EP. ${e.n}</div>
           <h4 data-tr="${e.t.tr}" data-en="${e.t.en}">${e.t[lang]}</h4>
