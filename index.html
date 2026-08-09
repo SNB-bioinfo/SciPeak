@@ -12,8 +12,6 @@
 <meta property="og:title" content="SciPeak — Bilimi okunur, kodu görünür kılıyoruz">
 <meta property="og:description" content="Moleküler biyoloji, embriyoloji, yapay zeka. Makaleler ve podcast.">
 <meta property="og:site_name" content="SciPeak">
-<meta property="og:url" content="https://scipeak.info/">
-<link rel="canonical" href="https://scipeak.info/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%AC%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
@@ -254,6 +252,27 @@
   .ep h4{font-family:var(--display);font-weight:600;font-size:1.02rem;line-height:1.25;margin-bottom:4px}
   .ep .listen{font-size:.82rem;color:var(--a);font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
   .ep:hover .listen{gap:10px}
+  .ep a.ep-cover{display:block}
+  .ep .links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:2px}
+  .ep .listen{text-decoration:none}
+  .ep .listen.yt{color:#ff8080}
+  .pod-plat{display:grid;gap:14px;max-width:560px;margin-top:26px}
+  .pod-card{display:flex;align-items:stretch;min-height:92px;overflow:hidden;
+    border:1px solid rgba(255,255,255,.09);border-radius:16px;background:rgba(255,255,255,.02);
+    text-decoration:none;color:inherit;transition:border-color .25s,background .25s,transform .25s}
+  .pod-card:hover{transform:translateY(-2px)}
+  .pod-card .pc-cover{flex:none;width:92px;align-self:stretch;position:relative;background:#0b1220}
+  .pod-card .pc-cover img{width:100%;height:100%;object-fit:cover;display:block}
+  .pod-card .pc-body{flex:1;min-width:0;display:flex;align-items:center;justify-content:space-between;
+    gap:14px;padding:14px 20px}
+  .pod-card .pc-name{font-family:var(--display);font-weight:600;font-size:1.02rem;line-height:1.2}
+  .pod-card .pc-sub{font-size:.8rem;color:rgba(234,240,255,.5);margin-top:4px}
+  .pod-card .pc-ico{flex:none;width:26px;height:26px;opacity:.85;transition:opacity .25s,transform .25s}
+  .pod-card:hover .pc-ico{opacity:1;transform:scale(1.08)}
+  .pod-card.yt:hover{border-color:rgba(255,60,60,.5);background:rgba(255,60,60,.07)}
+  .pod-card.sp:hover{border-color:rgba(30,215,96,.5);background:rgba(30,215,96,.07)}
+  .pod-card.ap:hover{border-color:rgba(190,120,255,.5);background:rgba(190,120,255,.07)}
+  @media(max-width:520px){.pod-card .pc-cover{width:76px}.pod-card{min-height:76px}}
   .pod-sig{font-style:italic;font-size:.92rem;letter-spacing:.01em;color:var(--a);opacity:.85;margin-top:10px;
     text-shadow:0 0 14px rgba(0,245,212,.3)}
 
@@ -407,8 +426,8 @@
 </section>
 
 <section class="stats">
-  <div class="stat"><span>3</span><small data-tr="Makale" data-en="Articles">Makale</small></div>
-  <div class="stat"><span>1</span><small data-tr="Podcast Bölümü" data-en="Podcast episode">Podcast Bölümü</small></div>
+  <div class="stat"><span>4</span><small data-tr="Makale" data-en="Articles">Makale</small></div>
+  <div class="stat"><span>6</span><small data-tr="Podcast Bölümü" data-en="Podcast episodes">Podcast Bölümü</small></div>
   <div class="stat"><span>TR / EN</span><small data-tr="İki Dil" data-en="Two languages">İki Dil</small></div>
   <div class="stat"><span>AI + Bio</span><small data-tr="Odak Alanı" data-en="Focus area">Odak Alanı</small></div>
 </section>
@@ -475,7 +494,7 @@
     <p data-tr="Islak laboratuvardan koda uzanan sohbetler." data-en="Conversations from the wet lab to code.">Islak laboratuvardan koda uzanan sohbetler.</p>
     <p class="pod-sig" data-tr="Bir hücreyle başlar. Bir soruyla derinleşir. Bir satır kodla anlatılır." data-en="It begins with a cell. It deepens with a question. It's told in a line of code.">Bir hücreyle başlar. Bir soruyla derinleşir. Bir satır kodla anlatılır.</p>
   </div></div>
-  <div class="pod reveal" id="podList"></div>
+  <div class="pod-plat reveal" id="podPlatforms"></div>
 </section>
 
 <section class="section" id="neden">
@@ -497,7 +516,7 @@
       <div class="role" data-tr="Kurucu · Hesaplamalı Biyobilimci" data-en="Founder · Computational Bioscientist">Kurucu · Hesaplamalı Biyobilimci</div>
       <div class="bio" data-tr="İstanbul Üniversitesi Biyoinformatik ve Sistem Biyolojisi YL. Derin öğrenme tabanlı embriyo görüntü analizi ve açıklanabilir yapay zeka üzerine tez çalışması." data-en="MSc in Bioinformatics and Systems Biology, Istanbul University. Thesis on deep learning-based embryo image analysis and explainable AI.">İstanbul Üniversitesi Biyoinformatik ve Sistem Biyolojisi YL. Derin öğrenme tabanlı embriyo görüntü analizi ve açıklanabilir yapay zeka üzerine tez çalışması.</div>
       <div class="tm-links">
-        <a href="/cv/sema-nur-bozdag-cv.pdf" target="_blank" rel="noopener">CV</a>
+        <a href="/cv/Sema-Nur-Bozdag-cv.pdf" target="_blank" rel="noopener">CV</a>
         <a href="https://tr.linkedin.com/in/sema-nur-bozda%C4%9F-159ba9203" target="_blank" rel="noopener noreferrer" data-external-social="true">LinkedIn</a>
         <a href="https://github.com/SNB-bioinfo" target="_blank" rel="noopener noreferrer" data-external-social="true">GitHub</a>
       </div>
@@ -557,6 +576,22 @@
 <script>
 /* ===== POST + EPISODE DATA ===== */
 const THUMBS={
+  chip:`<svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="g9" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#072a3d"/><stop offset="100%" stop-color="#12082a"/></linearGradient>
+    <linearGradient id="c9a" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#00F5D4" stop-opacity=".85"/><stop offset="100%" stop-color="#00F5D4" stop-opacity=".25"/></linearGradient>
+    <linearGradient id="c9b" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c77dff" stop-opacity=".25"/><stop offset="100%" stop-color="#c77dff" stop-opacity=".85"/></linearGradient></defs>
+    <rect width="400" height="200" fill="url(#g9)"/>
+    <g transform="translate(200,100) skewY(-4)">
+      <rect x="-160" y="-58" width="320" height="116" rx="16" fill="rgba(255,255,255,.04)" stroke="#34c6ff" stroke-opacity=".55" stroke-width="1.6"/>
+      <rect x="-150" y="-34" width="300" height="26" rx="6" fill="url(#c9a)"/>
+      <rect x="-150" y="8" width="300" height="26" rx="6" fill="url(#c9b)"/>
+      <line x1="-150" y1="-1" x2="150" y2="-1" stroke="#eaf0ff" stroke-opacity=".85" stroke-width="2" stroke-dasharray="6 4"/>
+      <g fill="#00F5D4"><circle cx="-126" cy="-10" r="5"/><circle cx="-102" cy="-10" r="5"/><circle cx="-78" cy="-10" r="5"/><circle cx="-54" cy="-10" r="5"/><circle cx="-30" cy="-10" r="5"/><circle cx="-6" cy="-10" r="5"/><circle cx="18" cy="-10" r="5"/><circle cx="42" cy="-10" r="5"/><circle cx="66" cy="-10" r="5"/><circle cx="90" cy="-10" r="5"/><circle cx="114" cy="-10" r="5"/><circle cx="138" cy="-10" r="5"/></g>
+      <g fill="#c77dff"><circle cx="-114" cy="8" r="4.2"/><circle cx="-88" cy="8" r="4.2"/><circle cx="-62" cy="8" r="4.2"/><circle cx="-36" cy="8" r="4.2"/><circle cx="-10" cy="8" r="4.2"/><circle cx="16" cy="8" r="4.2"/><circle cx="42" cy="8" r="4.2"/><circle cx="68" cy="8" r="4.2"/><circle cx="94" cy="8" r="4.2"/><circle cx="120" cy="8" r="4.2"/><circle cx="146" cy="8" r="4.2"/></g>
+      <rect x="-146" y="-46" width="14" height="92" rx="5" fill="none" stroke="#FFB000" stroke-opacity=".8" stroke-width="1.4"/>
+      <rect x="132" y="-46" width="14" height="92" rx="5" fill="none" stroke="#FFB000" stroke-opacity=".8" stroke-width="1.4"/>
+    </g>
+  </svg>`,
   dna:`<svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
     <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a0b2e"/><stop offset="50%" stop-color="#3a1a5c"/><stop offset="100%" stop-color="#0d3b4f"/></linearGradient>
     <linearGradient id="s1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1dffb0"/><stop offset="100%" stop-color="#34c6ff"/></linearGradient></defs>
@@ -602,6 +637,11 @@ const THUMBS={
 };
 
 const POSTS=[
+  {slug:'organ-on-a-chip',thumb:'chip',pod:false,date:'2026-07-12',
+   tag:{tr:'Tıp & Klinik',en:'Medicine & Clinical'},
+   h:{tr:'Çip Üstünde Bir Organ: Organ-on-a-Chip Nedir, Nasıl Yapılır?',en:'An Organ on a Chip: What Is Organ-on-a-Chip and How Is It Built?'},
+   e:{tr:'Mikroakışkan çipler, insan hücrelerini akış ve mekanik kuvvet altında yaşatarak akciğerden bağırsağa organ işlevlerini laboratuvarda nasıl yeniden kuruyor?',en:'How microfluidic chips keep human cells alive under flow and mechanical force to rebuild organ-level function in the lab.'},
+   m:{tr:'12 Tem 2026 · 7 dk',en:'Jul 12, 2026 · 7 min'},author:'Sema Nur Bozdağ'},
   {slug:'digital-twin',thumb:'twin',pod:true,date:'2026-06-28',
    tag:{tr:'Tıp & Klinik',en:'Medicine & Clinical'},
    h:{tr:'Vücudumuzun Dijital Kopyası: Digital Twin Biyolojide Ne Anlama Geliyor?',en:'Digital Copy of Our Body: What Does Digital Twin Mean in Biology?'},
@@ -618,14 +658,25 @@ const POSTS=[
    e:{tr:'Aristoteles\u2019in “pıhtısından” yapay zeka destekli IVF ve dijital ikizlere uzanan bin yıllık yolculuk. Mitler, mikroskoplar ve modern üreme teknolojileri.',en:'A thousand-year journey from Aristotle\u2019s “coagulation” to AI-assisted IVF and digital twins. Myths, microscopes, and modern reproductive technology.'},
    m:{tr:'19 Haz 2026 · 8 dk',en:'Jun 19, 2026 · 8 min'},author:'Sema Nur Bozdağ'},
 ];
-/* Podcast bölümleri. Yeni bölüm eklemek için:
-   Spotify'da bölüm → Paylaş → linki kopyala → "episode/" sonrasındaki kodu 'sid' olarak yaz.
-   Örn: https://open.spotify.com/episode/6kFuYc5GoDB7oK7aqagGyG  →  sid:'6kFuYc5GoDB7oK7aqagGyG'
-   Bölümler en yeni en üstte olacak şekilde sıralı durur. */
-const EPS=[
-  {n:'01', sid:'6kFuYc5GoDB7oK7aqagGyG', t:{tr:'DNA Bulutu & Dijital İkiz', en:'DNA Cloud & Digital Twin'}},
-  // {n:'02', sid:'TANITIM_ID', t:{tr:'Tanıtım', en:'Trailer'}},
+/* Podcast platformlari. Sirasi burada degistirilebilir.
+   Spotify: profil -> Paylas -> linki kopyala
+     https://open.spotify.com/show/XXXXXXXX  ->  SPOTIFY_SHOW='XXXXXXXX'
+   SPOTIFY_SHOW bos birakilirsa Spotify kutusu hic gorunmez (kirik link olmaz). */
+const SPOTIFY_SHOW='033JQ38h9N2tld0YTzlrts';
+const PLATFORMS=[
+  {k:'yt', name:'YouTube', url:'https://youtu.be/N3Mq8llwoCk',
+   s:{tr:'Videolu bölümleri izle', en:'Watch the video episodes'}},
+  {k:'sp', name:'Spotify', url:SPOTIFY_SHOW?'https://open.spotify.com/show/'+SPOTIFY_SHOW:'',
+   s:{tr:'Tüm bölümleri dinle', en:'Listen to all episodes'}},
+  {k:'ap', name:'Apple Podcasts', url:'https://podcasts.apple.com/tr/podcast/the-wet-lab-coder/id6787653247',
+   s:{tr:'Apple Podcasts’te takip et', en:'Follow on Apple Podcasts'}},
 ];
+const PLAT_ICON={
+  yt:'<svg class="pc-ico" viewBox="0 0 24 24" fill="#ff3d3d" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.4 31.4 0 0 0 24 12a31.4 31.4 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12z"/></svg>',
+  sp:'<svg class="pc-ico" viewBox="0 0 24 24" fill="#1ed760" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.5 17.3a.75.75 0 0 1-1 .25c-2.8-1.7-6.3-2.1-10.4-1.15a.75.75 0 1 1-.33-1.46c4.5-1.02 8.4-.57 11.5 1.33.35.22.46.68.24 1.03zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.2-1.97-8.08-2.54-11.87-1.4a.94.94 0 1 1-.54-1.8c4.33-1.3 9.7-.66 13.38 1.6.44.27.58.85.32 1.29zm.13-3.4c-3.84-2.28-10.17-2.49-13.83-1.38a1.12 1.12 0 1 1-.65-2.15C8.83 5.83 15.82 6.08 20.24 8.7a1.12 1.12 0 1 1-1.14 1.93z"/></svg>',
+  ap:'<svg class="pc-ico" viewBox="0 0 24 24" fill="#c77dff" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 3.9a3.05 3.05 0 1 1 0 6.1 3.05 3.05 0 0 1 0-6.1zm0 7.3c1.9 0 3.4 1.2 3.4 2.6 0 .5-.1 1.6-.3 2.9-.15 1-.3 1.9-.45 2.4-.3 1-1.4 1.6-2.65 1.6s-2.35-.6-2.65-1.6c-.15-.5-.3-1.4-.45-2.4-.2-1.3-.3-2.4-.3-2.9 0-1.4 1.5-2.6 3.4-2.6z"/></svg>'
+};
+
 
 let lang='tr';
 let searchQuery='';
@@ -674,27 +725,23 @@ function renderCatCounts(){
     ctEl.textContent=`${count} ${label}`;
   });
 }
-function renderEps(){
-  const l=document.getElementById('podList');l.innerHTML='';
-  EPS.forEach(e=>{
-    if(e.sid){
-      // Sitenin kendi tasarımında kart; tıklayınca bölüm Spotify'da açılır.
-      const a=document.createElement('a');a.className='ep';
-      a.href='https://open.spotify.com/episode/'+e.sid;
-      a.target='_blank';a.rel='noopener noreferrer';
-      a.innerHTML=`<div class="ep-cover"><img src="podcast-kapak.jpg" alt="The Wet Lab Coder" loading="lazy"><span class="pl">▶</span></div>
-        <div class="info">
-          <div class="num">EP. ${e.n}</div>
-          <h4 data-tr="${e.t.tr}" data-en="${e.t.en}">${e.t[lang]}</h4>
-          <span class="listen" data-tr="Spotify'da dinle →" data-en="Listen on Spotify →">${lang==='tr'?"Spotify'da dinle →":'Listen on Spotify →'}</span>
-        </div>`;
-      l.appendChild(a);
-    }else{
-      const el=document.createElement('div');el.className='ep';
-      el.innerHTML=`<div class="info"><div class="num">EP. ${e.n}</div>
-        <h4 data-tr="Bölüm yakında." data-en="Episode coming soon.">Bölüm yakında.</h4></div>`;
-      l.appendChild(el);
-    }
+function renderPlatforms(){
+  const l=document.getElementById('podPlatforms');if(!l)return;
+  l.innerHTML='';
+  PLATFORMS.forEach(p=>{
+    if(!p.url)return;
+    const a=document.createElement('a');a.className='pod-card '+p.k;
+    a.href=p.url;a.target='_blank';a.rel='noopener noreferrer';
+    a.setAttribute('aria-label',p.name);
+    a.innerHTML=`<div class="pc-cover"><img src="podcast-kapak.jpg" alt="The Wet Lab Coder" loading="lazy"></div>
+      <div class="pc-body">
+        <div>
+          <div class="pc-name">${p.name}</div>
+          <div class="pc-sub" data-tr="${p.s.tr}" data-en="${p.s.en}">${p.s[lang]}</div>
+        </div>
+        ${PLAT_ICON[p.k]}
+      </div>`;
+    l.appendChild(a);
   });
 }
 function applyLang(){
@@ -709,7 +756,7 @@ function applyLang(){
   document.getElementById('langToggle').innerHTML=lang==='tr'?'<b>TR</b> / EN':'TR / <b>EN</b>';
   try{localStorage.setItem('scipeak_lang',lang)}catch{}
 }
-function renderAll(){renderCards();renderFeatured();renderCatCounts();renderEps();applyLang();}
+function renderAll(){renderCards();renderFeatured();renderCatCounts();renderPlatforms();applyLang();}
 document.getElementById('langToggle').addEventListener('click',()=>{lang=lang==='tr'?'en':'tr';renderAll()});
 try{const sv=localStorage.getItem('scipeak_lang');if(sv)lang=sv}catch{}
 renderAll();
